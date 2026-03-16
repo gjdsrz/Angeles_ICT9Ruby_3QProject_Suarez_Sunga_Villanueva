@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Q3 Project</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    background-color: #3b4671;
+    background-image: url(blue.png);
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+footer{
+    margin-top: auto;
+    background: #1a232a;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-container{
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(100,160,200,0.25));
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius:15px;
+    width:650px;
+    margin:auto;
+    margin-top:40px;
+    padding:20px;
+    color: white;
+}
+
+label{
+    color:#a8d8ea;
+    font-weight: 400 !important;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:7px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.3);
+    margin-top:5px;
+    margin-bottom:10px;
+    font-size:14px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+
+.profile{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#ddd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    color:#555;
+    margin:auto;
+    margin-bottom:10px;
+}
+
+#instructionText{
+    display:none;
+    background:rgba(255,255,255,0.15);
+    padding:8px;
+    border-radius:5px;
+    margin-bottom:10px;
+    font-size:14px;
+}
+
+.create-btn{
+    background: #a8d8ea;
+    border:none;
+    padding:8px;
+    width:100%;
+    border-radius:8px;
+    color: #1a232a;
+    font-size:16px;
+}
+
+.cancel-btn{
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding:7px;
+    width:100%;
+    border-radius:6px;
+    color: white;
+}
+
+a{
+    color:#a8d8ea;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #212529; width: 100vw; margin: 0; padding: 10px 15px;">
+    <a class="navbar-brand" href="index.html"><img src="train.png" alt="logo" height="50px" width="50px"></a>
+    <ul class="navbar-nav me-auto d-flex flex-row gap-3">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="index.html#fareMatrix">Fare Matrix</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Schedule</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Help</a></li>
+    </ul>
+    <div class="d-flex ms-auto gap-2">
+        <button style="color: #aaa;" class="btn" type="button" onclick="window.location.href='index2.html'"><u>Book now</u></button>
+        <button class="btn btn-light" type="button" onclick="window.location.href='index2.html'">Create Account</button>
+    </div>
+</nav>
+</header>
+
+<div class="form-container">
+
+    <h1 style="font-size:40px; font-weight: 550; color: #f0d97a;">REGISTRATION</h1>
+
+    <p style="font-size:14px;">Please fill out all required fields with accurate information.</p>
+
+    <p>
+        <a href="#" onclick="toggleInstructions()">▼ Instructions</a>
+    </p>
+
+    <div id="instructionText">
+        Fill out the form completely and click <b>Create my account</b> when finished.
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 text-center">
+            <div class="profile">👤</div>
+            <input type="file" id="photo" class="form-control mb-2">
+            <button class="btn btn-sm" style="background-color: #a8d8ea; color: #1a232a; border: none;" onclick="uploadPhoto()">Upload Photo</button>
+        </div>
+
+        <div class="col-md-8">
+
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="First Name">
+
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="Last Name">
+
+            <div class="row">
+                <div class="col">
+                    <label>Age</label>
+                    <input type="number" id="age" placeholder="Age">
+                </div>
+                <div class="col">
+                    <label>Contact Number</label>
+                    <input type="text" id="contact" placeholder="Contact Number">
+                </div>
+            </div>
+
+            <label>Email</label>
+            <input type="text" id="email" placeholder="Email">
+
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Username">
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Password">
+
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="agree">
+                <label class="form-check-label" style="color: white;">
+                    I accept the
+                    <a href="https://www.termsfeed.com/" target="_blank">Terms of Use and Privacy Policy</a>
+                </label>
+            </div>
+
+            <button class="create-btn" onclick="createAccount()">Create my account</button>
+
+            <br><br>
+
+            <button class="cancel-btn" onclick="cancelForm()">Cancel</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<br><br>
+
+<footer>
+    <p style="color: #ccc;">Khloe Sunga | 9 - Ruby ©2026</p>
+</footer>
+
+<script>
+
+function toggleInstructions(){
+    let text=document.getElementById("instructionText");
+    if(text.style.display==="none"){
+        text.style.display="block";
+    }else{
+        text.style.display="none";
+    }
+}
+
+function uploadPhoto(){
+    let file=document.getElementById("photo").value;
+    if(file!=""){
+        alert("Your profile pic has been uploaded.");
+    }else{
+        alert("Please choose a file first.");
+    }
+}
+
+function createAccount(){
+    let fname=document.getElementById("fname").value;
+    let lname=document.getElementById("lname").value;
+    let username=document.getElementById("username").value;
+    let agree=document.getElementById("agree").checked;
+    if(agree==true){
+        window.location.href='index3.html';
+    }else{
+        alert("Please accept the Terms of Use first.");
+    }
+}
+
+function cancelForm(){
+    document.getElementById("fname").value="";
+    document.getElementById("lname").value="";
+    document.getElementById("age").value="";
+    document.getElementById("contact").value="";
+    document.getElementById("email").value="";
+    document.getElementById("username").value="";
+    document.getElementById("password").value="";
+}
+
+</script>
+
+</body>
+</html>
